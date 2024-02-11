@@ -1,5 +1,7 @@
 # Photo Portfolio Generator
 
+This application is a static photography portfolio generator. Sites generated from it have a minimal amount of html/css, and no javascript.
+
 ## Usage
 - Create an `images/` directory in the project root
 - Create a directory within `images/` for each gallery
