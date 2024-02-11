@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{.PageTitle}}</title>
+  <meta name="description" content={{.PageDescription}} />
+  <link rel="canonical" href="https://{{.Domain}}/" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="https://{{.Domain}}/favicon.ico" />
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">{{.PageTitle}}</a></h1>
+  </header>
+
+  <div class="grid-container">
+    {{range .HomePageGalleries}}
+    <a href="{{.IndexPath}}" class="{{.Gallery.Class}}">
+      <img src="{{.CoverImagePath}}" alt="{{.CoverImageAltText}}">
+      <h2>{{.Gallery.Name}}</h2>
+    </a>
+    {{end}}
+  </div>
+
+  <footer>
+    {{range .FooterLinks}}
+    <a href="{{.Url}}">{{.Name}}</a>
+    {{end}}
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+---
+outputDirectory: portfolio
+domain: dlubac.com
+siteTitle: Matt Dlubac Photography
+siteDescription: Landscape and nature photography by Matt Dlubac
+galleries:
+  - name: Acadia
+    path: acadia
+    description: Gallery of photographs taken in Acadia National Park.
+    class: half-width
+  - name: Iceland
+    path: iceland
+    description: Gallery of photographs taken in Iceland
+    class: half-width
+  - name: New England - Autumn
+    path: ne-autumn
+    description: Gallery of photographs taken in New England during autumn.
+    class: full-width
+  - name: New England - Summer
+    path: ne-summer
+    description: Gallery of photographs taken in New England during summer.
+    class: half-width
+  - name: New England - Winter
+    path: ne-winter
+    description: Gallery of photographs taken in New England during winter.
+    class: half-width
+  - name: Pacific Northwest
+    path: pacific-northwest
+    description: Gallery of photographs taken in the Pacific Northwest.
+    class: full-width
+  - name: Rocky Mountains
+    path: rocky-mountains
+    description: Gallery of photographs taken in the Rocky Mountains.
+    class: full-width
+  - name: Southwest
+    path: southwest
+    description: Gallery of photographs taken in the American Southwest.
+    class: half-width
+  - name: Infrared
+    path: infrared
+    description: Gallery of photographs taken with an infrared camera.
+    class: half-width
+footerLinks:
+  - name: Email
+    url: mailto:matt@dlubac.com
+  - name: Instagram
+    url: https://instagram.com/dlubac/
+  - name: Glass
+    url: https://glass.photo/mdlubac
+cameraModelMapping:
+  - model: ILCE-6000
+    name: Sony α6000
+  - model: ILCE-7RM3
+    name: Sony α7R III
+  - model: ILCE-7RM5
+    name: Sony α7R V

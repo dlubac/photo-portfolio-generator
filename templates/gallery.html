@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{.PageTitle}}</title>
+    <meta name="description" content={{.PageDescription}} />
+    <link rel="canonical" href="https://{{.Domain}}/galleries/{{.Url}}/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="icon" href="https://{{.Domain}}/favicon.ico" />
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+    <header>
+        <h1><a href="../../">{{.PageTitle}}</a></h1>
+    </header>
+
+    <div class="gallery-container">
+        {{range .Images}}
+        <img src="{{.Url}}" loading="lazy" alt="{{.AltText}}" />
+        <p>{{.Metadata}}</p>
+        {{end}}
+    </div>
+
+    <footer>
+        {{range .FooterLinks}}
+        <a href="{{.Url}}">{{.Name}}</a>
+        {{end}}
+    </footer>
+</body>
+
+</html>
