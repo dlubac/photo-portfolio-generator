@@ -2,3 +2,4 @@ config.json
 images/
 portfolio/
 .DS_Store
+portfolioGenerator
