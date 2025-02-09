@@ -1,5 +1,4 @@
 config.yml
-images/
-portfolio/
+output/
 .DS_Store
 portfolioGenerator

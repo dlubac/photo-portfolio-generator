@@ -1,76 +1,64 @@
 package utilities
 
 import (
+	"dlubac/photo-portfolio-generator/internal"
 	"dlubac/photo-portfolio-generator/internal/structs"
-	"html/template"
+	"fmt"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 	"log"
-	"os"
+	"path/filepath"
 	"strings"
 )
 
-func BuildGallery(gallery *structs.Gallery, config *structs.Config) error {
-	outputFilePath := config.OutputDirectory + "/galleries/" + gallery.Path
+func BuildGallery(path string) (structs.Gallery, error) {
+	fmt.Printf("Building gallery %s\n", path)
 
-	err := CreateDirectory(outputFilePath)
+	coverImages, err := filepath.Glob(path + string(filepath.Separator) + "*_cover.*")
 	if err != nil {
-		log.Fatalf("Unable to create output directory: %v", err)
+		return structs.Gallery{}, err
+	}
+	coverImagePath := coverImages[0]
+
+	var baseImages []string
+	files, err := filepath.Glob(path + string(filepath.Separator) + "*")
+	if err != nil {
+		return structs.Gallery{}, err
 	}
 
-	images, err := FindImages("images/" + gallery.Path)
-	if err != nil {
-		log.Fatalf("Unable to find images in path: %v", err)
-	}
-	log.Printf("Found %v images in: %v", len(images), "images/"+gallery.Path)
-
-	for _, image := range images {
-		err = CopyFile(image, strings.Replace(image, "images/"+gallery.Path, outputFilePath, 1))
-		if err != nil {
-			log.Fatalf("Unable to copy image: %v", err)
+	for _, file := range files {
+		for _, extension := range internal.ImageFileExtensions {
+			if strings.HasSuffix(file, extension) && !strings.Contains(file, "_thumb") && !strings.Contains(file, "_cover.") {
+				baseImages = append(baseImages, file)
+			}
 		}
 	}
 
-	galleryImages := make([]structs.GalleryPageImage, len(images))
-	for i, image := range images {
+	var galleryImages []structs.GalleryImage
+	for _, image := range baseImages {
 		log.Printf("Processing image: %v", image)
-		metadata, _ := GetImageMetadata(image, config)
-		altText, err := GetExifTag(image, "ImageDescription")
+		exif, err := ParseImageExif(image)
 		if err != nil {
-			altText = ""
+			return structs.Gallery{}, err
 		}
 
-		galleryImages[i] = structs.GalleryPageImage{
-			Url:      strings.Replace(image, "images/"+gallery.Path, ".", 1),
-			Metadata: FormatImageMetadata(metadata),
-			AltText:  TrimQuotes(altText),
+		pathParts := strings.Split(image, ".")
+		thumbnailPath := pathParts[0] + "_thumb." + pathParts[1]
+		thumbnailSmallPath := pathParts[0] + "_thumb_s." + pathParts[1]
+
+		galleryImage := structs.GalleryImage{
+			Path: path, ThumbnailPath: thumbnailPath, ThumbnailSmallPath: thumbnailSmallPath, CreateTimestamp: exif.DateTimeOriginal(),
 		}
+
+		galleryImages = append(galleryImages, galleryImage)
 	}
 
-	galleryPage := &structs.GalleryPage{
-		PageTitle:       config.SiteTitle,
-		PageDescription: gallery.Description,
-		Url:             gallery.Path,
-		Domain:          config.Domain,
-		Images:          galleryImages,
-		FooterLinks:     config.FooterLinks,
-	}
-
-	tmpl, err := template.ParseFiles("templates/gallery.html")
-	if err != nil {
-		return err
-	}
-
-	file, err := os.Create(outputFilePath + "/index.html")
-	if err != nil {
-		log.Printf("Unable to create file: %v", err)
-		return err
-	}
-
-	err = tmpl.Execute(file, galleryPage)
-	if err != nil {
-		return err
-	}
-
-	log.Printf("Gallery built: %v", gallery.Name)
-
-	return nil
+	return structs.Gallery{
+		Path:              path,
+		Name:              cases.Title(language.English).String(strings.Split(path, string(filepath.Separator))[2]),
+		HTMLPath:          strings.Replace(path, "content"+string(filepath.Separator), "", 1) + string(filepath.Separator) + "index.html",
+		CoverImagePath:    coverImagePath,
+		CoverImageAltText: "",
+		Images:            galleryImages,
+	}, nil
 }

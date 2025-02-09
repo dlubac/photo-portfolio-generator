@@ -1,5 +1,7 @@
 package structs
 
+import "time"
+
 type Config struct {
 	OutputDirectory    string               `yaml:"outputDirectory"`
 	Domain             string               `yaml:"domain"`
@@ -10,11 +12,24 @@ type Config struct {
 	CameraModelMapping []CameraModelMapping `yaml:"cameraModelMapping"`
 }
 
+type Homepage struct {
+	Galleries []Gallery
+}
+
 type Gallery struct {
-	Name        string
-	Path        string `yaml:"path"`
-	Description string `yaml:"description"`
-	Class       string `yaml:"class"`
+	Path              string
+	Name              string
+	HTMLPath          string
+	CoverImagePath    string
+	CoverImageAltText string
+	Images            []GalleryImage
+}
+
+type GalleryImage struct {
+	Path               string
+	ThumbnailPath      string
+	ThumbnailSmallPath string
+	CreateTimestamp    time.Time
 }
 
 type HomePageGallery struct {
@@ -42,6 +57,8 @@ type GalleryPageImage struct {
 	Url      string
 	Metadata string
 	AltText  string
+	Width    int64
+	Height   int64
 }
 
 type HomePage struct {
@@ -59,6 +76,8 @@ type ImageMetadata struct {
 	ShutterSpeed string
 	Aperture     string
 	ISO          string
+	Width        int64
+	Height       int64
 }
 
 type CameraModelMapping struct {

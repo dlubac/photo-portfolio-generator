@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func GetImageMetadata(imagePath string, config *structs.Config) (structs.ImageMetadata, error) {
+func GetImageMetadata(imagePath string) (structs.ImageMetadata, error) {
 	focalLength, err := GetExifTag(imagePath, "FocalLengthIn35mmFilm")
 	if err == nil {
 		focalLength = focalLength + "mm"
@@ -27,16 +27,16 @@ func GetImageMetadata(imagePath string, config *structs.Config) (structs.ImageMe
 		lensModel = TrimQuotes(lensModel)
 	}
 
-	cameraModel, err := GetExifTag(imagePath, "Model")
-	if err == nil {
-		mapping := config.CameraModelMapping
-		for _, mapping := range mapping {
-			if mapping.Model == TrimQuotes(cameraModel) {
-				cameraModel = mapping.Name
-				break
-			}
-		}
-	}
+	//cameraModel, err := GetExifTag(imagePath, "Model")
+	//if err == nil {
+	//	mapping := config.CameraModelMapping
+	//	for _, mapping := range mapping {
+	//		if mapping.Model == TrimQuotes(cameraModel) {
+	//			cameraModel = mapping.Name
+	//			break
+	//		}
+	//	}
+	//}
 
 	aperture, err := GetExifTag(imagePath, "FNumber")
 	if err == nil {
@@ -53,12 +53,20 @@ func GetImageMetadata(imagePath string, config *structs.Config) (structs.ImageMe
 		iso = "ISO " + iso
 	}
 
+	width, _ := GetExifTag(imagePath, "PixelXDimension")
+	height, _ := GetExifTag(imagePath, "PixelYDimension")
+
+	widthInt, _ := strconv.ParseInt(width, 10, 64)
+	heightInt, _ := strconv.ParseInt(height, 10, 64)
+
 	return structs.ImageMetadata{
-		CameraModel:  cameraModel,
+		CameraModel:  "cameraModel",
 		LensModel:    lensModel,
 		FocalLength:  focalLength,
 		ShutterSpeed: shutterSpeed,
 		Aperture:     aperture,
 		ISO:          iso,
+		Width:        widthInt,
+		Height:       heightInt,
 	}, nil
 }

@@ -1,57 +1,61 @@
 package main
 
 import (
+	"dlubac/photo-portfolio-generator/internal/structs"
 	"dlubac/photo-portfolio-generator/internal/utilities"
+	"html/template"
 	"log"
+	"os"
+	"path/filepath"
 )
 
 func main() {
-	config, err := utilities.ParseConfig("config.yml")
+	//var galleries []structs.Gallery
+
+	galleriesPath := filepath.Join("content", "galleries") + string(filepath.Separator)
+	matches, err := filepath.Glob(galleriesPath + "*")
 	if err != nil {
-		log.Fatalf("Unable to parse config: %v", err)
+		log.Fatal(err)
 	}
 
-	err = utilities.DeleteDirectory(config.OutputDirectory)
-	if err != nil {
-		log.Fatalf("Unable to delete output directory: %v", err)
-	}
-
-	err = utilities.CreateDirectory(config.OutputDirectory)
-	if err != nil {
-		log.Fatalf("Unable to create output directory: %v", err)
-	}
-
-	err = utilities.CreateDirectory(config.OutputDirectory + "/galleries")
-	if err != nil {
-		log.Fatalf("Unable to create galleries directory: %v", err)
-	}
-
-	err = utilities.CopyFile("templates/styles.css", config.OutputDirectory+"/styles.css")
-	if err != nil {
-		log.Fatalf("Unable to copy styles.css: %v", err)
-	}
-
-	err = utilities.CopyFile("templates/iAWriterDuoS-Regular.woff2", config.OutputDirectory+"/iAWriterDuoS-Regular.woff2")
-	if err != nil {
-		log.Fatalf("Unable to copy iAWriterDuoS-Regular.woff2: %v", err)
-	}
-
-	err = utilities.CopyFile("templates/favicon.ico", config.OutputDirectory+"/favicon.ico")
-	if err != nil {
-		log.Fatalf("Unable to copy favicon.ico: %v", err)
-	}
-
-	galleries := config.Galleries
-	for _, Gallery := range galleries {
-		log.Printf("Building gallery: %v", Gallery.Name)
-		err = utilities.BuildGallery(&Gallery, config)
+	var galleries []structs.Gallery
+	for _, match := range matches {
+		info, err := os.Stat(match)
 		if err != nil {
-			log.Fatalf("Unable to build gallery: %v", err)
+			log.Fatal(err)
+		}
+
+		if info.IsDir() {
+			gallery, err := utilities.BuildGallery(match)
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			galleries = append(galleries, gallery)
 		}
 	}
 
-	err = utilities.BuildHomePage(config)
+	tmpl, err := template.ParseFiles("templates/homepage2.html")
 	if err != nil {
-		log.Fatalf("Unable to build home page: %v", err)
+		log.Fatal(err)
 	}
+
+	homepage, err := os.Create("output/homepage2.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = tmpl.Execute(homepage, structs.Homepage{Galleries: galleries})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//for _, name := range galleryNames {
+	//	gallery, err := utilities.BuildGallery(name)
+	//	if err != nil {
+	//		log.Fatal(err)
+	//	}
+	//
+	//	fmt.Println(gallery)
+	//}
 }
