@@ -2,32 +2,32 @@
 <html lang="en">
 
 <head>
-    <title>{{.PageTitle}}</title>
-    <meta name="description" content={{.PageDescription}} />
-    <link rel="canonical" href="https://{{.Domain}}/galleries/{{.Url}}/" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="icon" href="https://{{.Domain}}/favicon.ico" />
-    <meta name="theme-color" content="#fafafa">
+	<title>{{.Metadata.Title}}</title>
+	<meta name="description" content="{{.Metadata.Description}}" />
+	<link rel="canonical" href="https://{{.Metadata.Domain}}/galleries/{{.Name}}/" />
+	<link rel="stylesheet" href="../../styles.css" />
+	<link rel="icon" href="https://{{.Metadata.Domain}}/favicon.ico" />
+	<meta name="theme-color" content="#fafafa">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="../../spotlight.bundle.js"></script>
 </head>
 
 <body>
-    <header>
-        <h1><a href="../../">{{.PageTitle}}</a></h1>
-    </header>
-
-    <div class="gallery-container">
-        {{range .Images}}
-        <img loading="lazy" src="{{.Url}}" alt="{{.AltText}}"
-            style="height:{{.Height}}px; width:100%; max-height:85vh;" />
-        <p>{{.Metadata}}</p>
-        {{end}}
-    </div>
-
-    <footer>
-        {{range .FooterLinks}}
-        <a href="{{.Url}}">{{.Name}}</a>
-        {{end}}
-    </footer>
+<header>
+	<h1><a href="../../">{{.Metadata.Title}}</a></h1>
+</header>
+<div class="photo-gallery spotlight-group" data-animation="slide" data-theme="white" data-fullscreen="false"
+	 data-control="page,close,prev,next">
+	<h2>{{.Name}}</h2>
+	<div class="photo-gallery-images">
+		{{range .Images}}
+		<a class="spotlight" href="{{.Image}}" data-description="">
+			<picture>
+				<source srcset="{{.ThumbnailSmall}}" media="(max-width: 775px)">
+				<img src="{{.Thumbnail}}" loading="lazy" alt="" />
+			</picture>
+		</a>
+		{{end}}
+	</div>
+</div>
 </body>
-
-</html>

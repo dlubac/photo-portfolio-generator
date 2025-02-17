@@ -2,6 +2,12 @@ package structs
 
 import "time"
 
+type SiteMetadata struct {
+	Domain      string
+	Title       string
+	Description string
+}
+
 type Config struct {
 	OutputDirectory    string               `yaml:"outputDirectory"`
 	Domain             string               `yaml:"domain"`
@@ -14,22 +20,24 @@ type Config struct {
 
 type Homepage struct {
 	Galleries []Gallery
+	Metadata  SiteMetadata
 }
 
 type Gallery struct {
-	Path              string
-	Name              string
-	HTMLPath          string
-	CoverImagePath    string
-	CoverImageAltText string
-	Images            []GalleryImage
+	Path           string
+	Name           string
+	HTMLPath       string
+	CoverImagePath string
+	//CoverImageAltText string
+	Images   []GalleryImage
+	Metadata SiteMetadata
 }
 
 type GalleryImage struct {
-	Path               string
-	ThumbnailPath      string
-	ThumbnailSmallPath string
-	CreateTimestamp    time.Time
+	Image           string
+	Thumbnail       string
+	ThumbnailSmall  string
+	CreateTimestamp time.Time
 }
 
 type HomePageGallery struct {
