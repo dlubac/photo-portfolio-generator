@@ -1,7 +1,6 @@
 package steps
 
 import (
-	"dlubac/photo-portfolio-generator/internal"
 	"dlubac/photo-portfolio-generator/internal/structs"
 	"dlubac/photo-portfolio-generator/internal/utilities"
 	"log"
@@ -15,22 +14,15 @@ func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, erro
 
 	err := utilities.CreateDirectory(filepath.Join("output", "photo-reel"))
 	if err != nil {
-		return nil, err
+		log.Fatalf("Error creating photo reel output directory: %v", err)
 	}
 
-	var imagePaths []string
 	files, err := filepath.Glob(filepath.Join("content", "photo-reel", "*"))
-	if err != nil {
-		return nil, err
+	if err != nil || files == nil {
+		log.Fatalf("Error finding photo reel files: %v", err)
 	}
 
-	for _, file := range files {
-		for _, extension := range internal.ImageFileExtensions {
-			if strings.HasSuffix(file, extension) && !strings.Contains(file, "_thumb") && !strings.Contains(file, "_cover.") {
-				imagePaths = append(imagePaths, file)
-			}
-		}
-	}
+	imagePaths := utilities.FilterImages(files, []string{"_thumb", "_cover."})
 
 	var photoReelImages []structs.GalleryImage
 	for _, path := range imagePaths {
