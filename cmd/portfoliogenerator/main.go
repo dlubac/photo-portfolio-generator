@@ -53,6 +53,11 @@ func main() {
 		}
 	}
 
+	photoReelPreviews, err := steps.BuildPhotoReel(metadata)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	tmpl, err := template.ParseFiles("templates/homepage.html")
 	if err != nil {
 		log.Fatal(err)
@@ -63,7 +68,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = tmpl.Execute(homepage, structs.Homepage{Galleries: galleries, Metadata: metadata})
+	err = tmpl.Execute(homepage, structs.Homepage{PhotoReelPreviews: photoReelPreviews, Galleries: galleries, Metadata: metadata})
 	if err != nil {
 		log.Fatal(err)
 	}

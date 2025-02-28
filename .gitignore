@@ -2,3 +2,4 @@ config.yml
 output/
 .DS_Store
 portfolioGenerator
+content/

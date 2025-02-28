@@ -54,9 +54,8 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 			return structs.Gallery{}, err
 		}
 
-		pathParts := strings.Split(image, ".")
-		thumbnailPath := pathParts[0] + "_thumb." + pathParts[1]
-		thumbnailSmallPath := pathParts[0] + "_thumb_s." + pathParts[1]
+		thumbnailPath := utilities.AppendToFile(image, "_thumb")
+		thumbnailSmallPath := utilities.AppendToFile(image, "_thumb_s")
 
 		for _, file := range []string{image, thumbnailPath, thumbnailSmallPath} {
 			err := utilities.CopyFile(file, strings.Replace(file, path, outputDirectory, 1))
@@ -88,12 +87,12 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 		Metadata: metadata,
 	}
 
-	tmpl, err := template.ParseFiles("templates/gallery.html")
+	tmpl, err := template.ParseFiles(filepath.Join("templates", "gallery.html"))
 	if err != nil {
 		return structs.Gallery{}, err
 	}
 
-	galleryIndex, err := os.Create(outputDirectory + "/index.html")
+	galleryIndex, err := os.Create(filepath.Join(outputDirectory, "index.html"))
 	if err != nil {
 		return structs.Gallery{}, err
 	}

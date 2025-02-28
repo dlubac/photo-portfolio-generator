@@ -16,17 +16,26 @@
 		<h1><a href="/">{{.Metadata.Title}}</a></h1>
 	</header>
 	<div class="homepage-section">
-		<div class="homepage-section galleries">
-			<h2>Galleries</h2>
-			<div class="gallery-grid">
-				{{range .Galleries}}
-				<a href="{{.HTMLPath}}">
-					<img loading="lazy" src="{{.CoverImagePath}}"
-						 alt="">
-					<h3>{{.Name}}</h3>
-				</a>
-				{{end}}
-			</div>
+		<h2>Photo Reel</h2>
+		<div class="photo-reel-homepage-grid">
+			{{range .PhotoReelPreviews}}
+			<a href="photo-reel/index.html">
+				<img src="photo-reel/{{.Thumbnail}}">
+			</a>
+			{{end}}
+			<a class="photo-reel-homepage-more" href="photo-reel/index.html">See More</a>
+		</div>
+	</div>
+	<div class="homepage-section galleries">
+		<h2>Galleries</h2>
+		<div class="gallery-grid">
+			{{range .Galleries}}
+			<a href="{{.HTMLPath}}">
+				<img loading="lazy" src="{{.CoverImagePath}}"
+					 alt="">
+				<h3>{{.Name}}</h3>
+			</a>
+			{{end}}
 		</div>
 	</div>
 	<footer>

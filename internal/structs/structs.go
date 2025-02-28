@@ -19,8 +19,14 @@ type Config struct {
 }
 
 type Homepage struct {
-	Galleries []Gallery
-	Metadata  SiteMetadata
+	PhotoReelPreviews []GalleryImage
+	Galleries         []Gallery
+	Metadata          SiteMetadata
+}
+
+type PhotoReel struct {
+	Images   []GalleryImage
+	Metadata SiteMetadata
 }
 
 type Gallery struct {
