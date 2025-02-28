@@ -4,9 +4,7 @@ import (
 	"dlubac/photo-portfolio-generator/internal"
 	"dlubac/photo-portfolio-generator/internal/structs"
 	"dlubac/photo-portfolio-generator/internal/utilities"
-	"html/template"
 	"log"
-	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -61,17 +59,13 @@ func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, erro
 		return photoReelImages[i].CreateTimestamp.After(photoReelImages[j].CreateTimestamp)
 	})
 
-	tmpl, err := template.ParseFiles(filepath.Join("templates", "photo-reel.html"))
+	err = utilities.BuildTemplate(
+		filepath.Join("templates", "photo-reel.html"),
+		filepath.Join("output", "photo-reel", "index.html"),
+		structs.PhotoReel{Images: photoReelImages, Metadata: metadata})
 	if err != nil {
-		return nil, err
+		log.Fatalf("Error building template: %s\n", err)
 	}
-
-	galleryIndex, err := os.Create(filepath.Join("output", "photo-reel", "index.html"))
-	if err != nil {
-		return nil, err
-	}
-
-	err = tmpl.Execute(galleryIndex, structs.PhotoReel{Images: photoReelImages, Metadata: metadata})
 
 	return photoReelImages[:3], nil
 }

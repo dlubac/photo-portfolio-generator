@@ -3,7 +3,7 @@ package main
 import (
 	"dlubac/photo-portfolio-generator/internal/steps"
 	"dlubac/photo-portfolio-generator/internal/structs"
-	"html/template"
+	"dlubac/photo-portfolio-generator/internal/utilities"
 	"log"
 	"os"
 	"path/filepath"
@@ -22,12 +22,8 @@ func main() {
 
 	galleriesPath := filepath.Join("content", "galleries") + string(filepath.Separator)
 	matches, err := filepath.Glob(galleriesPath + "*")
-	if err != nil {
+	if err != nil || len(matches) == 0 {
 		log.Fatalf("Error searching for galleries: %v", err)
-	}
-
-	if len(matches) == 0 {
-		log.Fatal("No galleries found")
 	}
 
 	err = steps.PrepareDirectories()
@@ -58,18 +54,11 @@ func main() {
 		log.Fatal(err)
 	}
 
-	tmpl, err := template.ParseFiles("templates/homepage.html")
+	err = utilities.BuildTemplate(
+		"templates/homepage.html",
+		"output/index.html",
+		structs.Homepage{PhotoReelPreviews: photoReelPreviews, Galleries: galleries, Metadata: metadata})
 	if err != nil {
-		log.Fatal(err)
-	}
-
-	homepage, err := os.Create("output/index.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = tmpl.Execute(homepage, structs.Homepage{PhotoReelPreviews: photoReelPreviews, Galleries: galleries, Metadata: metadata})
-	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error building template: %s\n", err)
 	}
 }

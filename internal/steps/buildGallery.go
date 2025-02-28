@@ -7,9 +7,7 @@ import (
 	"errors"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
-	"html/template"
 	"log"
-	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -79,7 +77,7 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 
 	gallery := structs.Gallery{
 		Path:           path,
-		Name:           cases.Title(language.English).String(name),
+		Name:           strings.Replace(cases.Title(language.English).String(name), "-", " ", -1),
 		HTMLPath:       "galleries/" + strings.ToLower(name) + "/index.html",
 		CoverImagePath: strings.Replace(coverImagePath, "content"+string(filepath.Separator), "", 1),
 		//CoverImageAltText: "",
@@ -87,17 +85,10 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 		Metadata: metadata,
 	}
 
-	tmpl, err := template.ParseFiles(filepath.Join("templates", "gallery.html"))
+	err = utilities.BuildTemplate(filepath.Join("templates", "gallery.html"), filepath.Join(outputDirectory, "index.html"), gallery)
 	if err != nil {
-		log.Fatalf("Error parsing gallery template: %s\n", err)
+		log.Fatalf("Error building template: %s\n", err)
 	}
-
-	galleryIndex, err := os.Create(filepath.Join(outputDirectory, "index.html"))
-	if err != nil {
-		log.Fatalf("Error creating gallery index: %s\n", err)
-	}
-
-	err = tmpl.Execute(galleryIndex, gallery)
 
 	return gallery, nil
 }
