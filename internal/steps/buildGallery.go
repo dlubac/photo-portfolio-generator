@@ -36,7 +36,7 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 	var fullSizeImages []string
 	files, err := filepath.Glob(path + string(filepath.Separator) + "*")
 	if err != nil {
-		return structs.Gallery{}, err
+		log.Fatalf("Error globbing gallery %s: %s\n", path, err)
 	}
 
 	for _, file := range files {
@@ -51,7 +51,7 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 	for _, image := range fullSizeImages {
 		exif, err := utilities.ParseImageExif(image)
 		if err != nil {
-			return structs.Gallery{}, err
+			log.Fatalf("Error parsing gallery image %s: %s\n", image, err)
 		}
 
 		thumbnailPath := utilities.AppendToFile(image, "_thumb")
@@ -60,7 +60,7 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 		for _, file := range []string{image, thumbnailPath, thumbnailSmallPath} {
 			err := utilities.CopyFile(file, strings.Replace(file, path, outputDirectory, 1))
 			if err != nil {
-				return structs.Gallery{}, err
+				log.Fatalf("Error copying gallery image %s: %s\n", file, err)
 			}
 		}
 
@@ -89,12 +89,12 @@ func BuildGallery(path string, metadata structs.SiteMetadata) (structs.Gallery, 
 
 	tmpl, err := template.ParseFiles(filepath.Join("templates", "gallery.html"))
 	if err != nil {
-		return structs.Gallery{}, err
+		log.Fatalf("Error parsing gallery template: %s\n", err)
 	}
 
 	galleryIndex, err := os.Create(filepath.Join(outputDirectory, "index.html"))
 	if err != nil {
-		return structs.Gallery{}, err
+		log.Fatalf("Error creating gallery index: %s\n", err)
 	}
 
 	err = tmpl.Execute(galleryIndex, gallery)

@@ -58,7 +58,7 @@ func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, erro
 	}
 
 	sort.Slice(photoReelImages, func(i, j int) bool {
-		return photoReelImages[i].CreateTimestamp.Before(photoReelImages[j].CreateTimestamp)
+		return photoReelImages[i].CreateTimestamp.After(photoReelImages[j].CreateTimestamp)
 	})
 
 	tmpl, err := template.ParseFiles(filepath.Join("templates", "photo-reel.html"))
