@@ -2,22 +2,21 @@ package steps
 
 import (
 	"dlubac/photo-portfolio-generator/internal/utilities"
+	"log"
 )
 
-func PrepareDirectories() error {
+func PrepareDirectories() {
 	directoriesToCreate := []string{"output", "output/galleries", "output/photo-reel"}
 
 	err := utilities.DeleteDirectory("output")
 	if err != nil {
-		return err
+		log.Fatalf("Error deleting output directory: %v", err)
 	}
 
 	for _, directory := range directoriesToCreate {
 		err = utilities.CreateDirectory(directory)
 		if err != nil {
-			return err
+			log.Fatalf("Error creating directory: %v", err)
 		}
 	}
-
-	return nil
 }

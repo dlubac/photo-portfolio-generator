@@ -28,39 +28,19 @@ func main() {
 		log.Fatalf("Error searching for galleries: %v", err)
 	}
 
-	err = steps.PrepareDirectories()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = steps.CopyStaticFiles()
-	if err != nil {
-		log.Fatal(err)
-	}
+	steps.PrepareDirectories()
+	steps.CopyStaticFiles()
 
 	var galleries []structs.Gallery
 	for _, match := range matches {
 		info, _ := os.Stat(match)
 		if info.IsDir() {
-			gallery, err := steps.BuildGallery(match, metadata)
-			if err != nil {
-				log.Printf("Error building gallery: %v", err)
-			}
-
-			galleries = append(galleries, gallery)
+			galleries = append(galleries, steps.BuildGallery(match, metadata))
 		}
 	}
 
-	photoReelPreviews, err := steps.BuildPhotoReel(metadata)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = utilities.BuildTemplate(
+	utilities.BuildTemplate(
 		"templates/homepage.html",
 		"output/index.html",
-		structs.Homepage{PhotoReelPreviews: photoReelPreviews, Galleries: galleries, Metadata: metadata})
-	if err != nil {
-		log.Fatalf("Error building template: %s\n", err)
-	}
+		structs.Homepage{PhotoReelPreviews: steps.BuildPhotoReel(metadata), Galleries: galleries, Metadata: metadata})
 }

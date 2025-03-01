@@ -34,7 +34,7 @@ func buildGalleryImage(image string, galleryDirectory, outputDirectory string) s
 	}
 }
 
-func BuildGallery(galleryDirectory string, metadata structs.SiteMetadata) (structs.Gallery, error) {
+func BuildGallery(galleryDirectory string, metadata structs.SiteMetadata) structs.Gallery {
 	galleryName := strings.Split(galleryDirectory, string(filepath.Separator))[2]
 	log.Printf("Building gallery %s\n", galleryName)
 
@@ -68,15 +68,11 @@ func BuildGallery(galleryDirectory string, metadata structs.SiteMetadata) (struc
 		Name:           strings.Replace(cases.Title(language.English).String(galleryName), "-", " ", -1),
 		HTMLPath:       "galleries/" + strings.ToLower(galleryName) + "/index.html",
 		CoverImagePath: strings.Replace(coverImagePath, "content"+string(filepath.Separator), "", 1),
-		//CoverImageAltText: "",
-		Images:   galleryImages,
-		Metadata: metadata,
+		Images:         galleryImages,
+		Metadata:       metadata,
 	}
 
-	err = utilities.BuildTemplate(filepath.Join("templates", "gallery.html"), filepath.Join(outputDirectory, "index.html"), gallery)
-	if err != nil {
-		log.Fatalf("Error building template: %s\n", err)
-	}
+	utilities.BuildTemplate(filepath.Join("templates", "gallery.html"), filepath.Join(outputDirectory, "index.html"), gallery)
 
-	return gallery, nil
+	return gallery
 }

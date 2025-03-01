@@ -29,7 +29,7 @@ func buildPhotoReelImage(image string) structs.GalleryImage {
 		CreateTimestamp: exif.DateTimeOriginal()}
 }
 
-func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, error) {
+func BuildPhotoReel(metadata structs.SiteMetadata) []structs.GalleryImage {
 	log.Println("Building photo reel")
 
 	err := utilities.CreateDirectory(filepath.Join("output", "photo-reel"))
@@ -49,15 +49,15 @@ func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, erro
 		photoReelImages = append(photoReelImages, buildPhotoReelImage(path))
 	}
 
-	utilities.SortImages(photoReelImages, false)
+	if len(photoReelImages) < 3 {
+		log.Fatalf("Photo reel must contain at least 3 images.")
+	}
 
-	err = utilities.BuildTemplate(
+	utilities.SortImages(photoReelImages, false)
+	utilities.BuildTemplate(
 		filepath.Join("templates", "photo-reel.html"),
 		filepath.Join("output", "photo-reel", "index.html"),
 		structs.PhotoReel{Images: photoReelImages, Metadata: metadata})
-	if err != nil {
-		log.Fatalf("Error building template: %s\n", err)
-	}
 
-	return photoReelImages[:3], nil
+	return photoReelImages[:3]
 }
