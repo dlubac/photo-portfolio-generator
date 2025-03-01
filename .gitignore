@@ -1,5 +1,6 @@
-config.json
-images/
-portfolio/
+config.yml
+output/
 .DS_Store
 portfolioGenerator
+content/
+.idea/

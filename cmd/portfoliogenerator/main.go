@@ -1,57 +1,46 @@
 package main
 
 import (
+	"dlubac/photo-portfolio-generator/internal/steps"
+	"dlubac/photo-portfolio-generator/internal/structs"
 	"dlubac/photo-portfolio-generator/internal/utilities"
+	"flag"
 	"log"
+	"os"
+	"path/filepath"
 )
 
 func main() {
-	config, err := utilities.ParseConfig("config.yml")
-	if err != nil {
-		log.Fatalf("Unable to parse config: %v", err)
+	domain := flag.String("domain", "", "domain")
+	title := flag.String("title", "", "site title")
+	description := flag.String("description", "", "site description")
+	flag.Parse()
+
+	metadata := structs.SiteMetadata{
+		Domain:      *domain,
+		Title:       *title,
+		Description: *description,
 	}
 
-	err = utilities.DeleteDirectory(config.OutputDirectory)
-	if err != nil {
-		log.Fatalf("Unable to delete output directory: %v", err)
+	galleriesPath := filepath.Join("content", "galleries") + string(filepath.Separator)
+	matches, err := filepath.Glob(galleriesPath + "*")
+	if err != nil || len(matches) == 0 {
+		log.Fatalf("Error searching for galleries: %v", err)
 	}
 
-	err = utilities.CreateDirectory(config.OutputDirectory)
-	if err != nil {
-		log.Fatalf("Unable to create output directory: %v", err)
-	}
+	steps.PrepareDirectories()
+	steps.CopyStaticFiles()
 
-	err = utilities.CreateDirectory(config.OutputDirectory + "/galleries")
-	if err != nil {
-		log.Fatalf("Unable to create galleries directory: %v", err)
-	}
-
-	err = utilities.CopyFile("templates/styles.css", config.OutputDirectory+"/styles.css")
-	if err != nil {
-		log.Fatalf("Unable to copy styles.css: %v", err)
-	}
-
-	err = utilities.CopyFile("templates/iAWriterDuoS-Regular.woff2", config.OutputDirectory+"/iAWriterDuoS-Regular.woff2")
-	if err != nil {
-		log.Fatalf("Unable to copy iAWriterDuoS-Regular.woff2: %v", err)
-	}
-
-	err = utilities.CopyFile("templates/favicon.ico", config.OutputDirectory+"/favicon.ico")
-	if err != nil {
-		log.Fatalf("Unable to copy favicon.ico: %v", err)
-	}
-
-	galleries := config.Galleries
-	for _, Gallery := range galleries {
-		log.Printf("Building gallery: %v", Gallery.Name)
-		err = utilities.BuildGallery(&Gallery, config)
-		if err != nil {
-			log.Fatalf("Unable to build gallery: %v", err)
+	var galleries []structs.Gallery
+	for _, match := range matches {
+		info, _ := os.Stat(match)
+		if info.IsDir() {
+			galleries = append(galleries, steps.BuildGallery(match, metadata))
 		}
 	}
 
-	err = utilities.BuildHomePage(config)
-	if err != nil {
-		log.Fatalf("Unable to build home page: %v", err)
-	}
+	utilities.BuildTemplate(
+		"templates/homepage.html",
+		"output/index.html",
+		structs.Homepage{PhotoReelPreviews: steps.BuildPhotoReel(metadata), Galleries: galleries, Metadata: metadata})
 }

@@ -12,4 +12,4 @@ This application is a static photography portfolio generator. Sites generated fr
     - Recommended sizing is 600x840 for half-width portrait images and 1200x600 for full-width landscape images
 - Copy `config.yml.example` to `config.yml` and populate it
     - Comments are present in the example that explain specific values
-- Run `go run cmd/portfoliogenerator/main.go` or `go build -o portfolioGenerator cmd/portfoliogenerator/main.go && ./portfolioGenerator` to run the generator
+- Run `./run.sh build && ./portfolioGenerator` to run the generator

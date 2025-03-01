@@ -2,33 +2,44 @@
 <html lang="en">
 
 <head>
-  <title>{{.PageTitle}}</title>
-  <meta name="description" content={{.PageDescription}} />
-  <link rel="canonical" href="https://{{.Domain}}/" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="https://{{.Domain}}/favicon.ico" />
-  <meta name="theme-color" content="#fafafa">
+	<title>{{.Metadata.Title}}</title>
+	<meta name="description" content="{{.Metadata.Description}}" />
+	<link rel="canonical" href="https://{{.Metadata.Domain}}/" />
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="https://{{.Metadata.Domain}}/favicon.ico" />
+	<meta name="theme-color" content="#fafafa">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <header>
-    <h1><a href="/">{{.PageTitle}}</a></h1>
-  </header>
-
-  <div class="grid-container">
-    {{range .HomePageGalleries}}
-    <a href="{{.IndexPath}}" class="{{.Gallery.Class}}">
-      <img src="{{.CoverImagePath}}" alt="{{.CoverImageAltText}}">
-      <h2>{{.Gallery.Name}}</h2>
-    </a>
-    {{end}}
-  </div>
-
-  <footer>
-    {{range .FooterLinks}}
-    <a href="{{.Url}}">{{.Name}}</a>
-    {{end}}
-  </footer>
+	<header>
+		<h1><a href="/">{{.Metadata.Title}}</a></h1>
+	</header>
+	<div class="homepage-section">
+		<h2>Photo Reel</h2>
+		<div class="photo-reel-homepage-grid">
+			{{range .PhotoReelPreviews}}
+			<a href="photo-reel/index.html">
+				<img src="photo-reel/{{.Thumbnail}}">
+			</a>
+			{{end}}
+			<a class="photo-reel-homepage-more" href="photo-reel/index.html">See More</a>
+		</div>
+	</div>
+	<div class="homepage-section galleries">
+		<h2>Galleries</h2>
+		<div class="gallery-grid">
+			{{range .Galleries}}
+			<a href="{{.HTMLPath}}">
+				<img loading="lazy" src="{{.CoverImagePath}}"
+					 alt="">
+				<h3>{{.Name}}</h3>
+			</a>
+			{{end}}
+		</div>
+	</div>
+	<footer>
+		<a href="mailto:contact@dlubac.com">Email</a>
+		<a href="https://instagram.com/dlubac/">Instagram</a>
+	</footer>
 </body>
-
-</html>
