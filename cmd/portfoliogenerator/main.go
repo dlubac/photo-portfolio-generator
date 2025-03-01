@@ -4,20 +4,22 @@ import (
 	"dlubac/photo-portfolio-generator/internal/steps"
 	"dlubac/photo-portfolio-generator/internal/structs"
 	"dlubac/photo-portfolio-generator/internal/utilities"
+	"flag"
 	"log"
 	"os"
 	"path/filepath"
 )
 
 func main() {
-	// TODO
-	// - domain name cli param
-	// - site title cli param
-	//
+	domain := flag.String("domain", "", "domain")
+	title := flag.String("title", "", "site title")
+	description := flag.String("description", "", "site description")
+	flag.Parse()
+
 	metadata := structs.SiteMetadata{
-		Domain:      "dlubac.com",
-		Title:       "Matt Dlubac Photography",
-		Description: "Outdoor&#32;photography&#32;by&#32;Matt&#32;Dlubac",
+		Domain:      *domain,
+		Title:       *title,
+		Description: *description,
 	}
 
 	galleriesPath := filepath.Join("content", "galleries") + string(filepath.Separator)
