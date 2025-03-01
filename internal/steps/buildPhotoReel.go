@@ -5,9 +5,29 @@ import (
 	"dlubac/photo-portfolio-generator/internal/utilities"
 	"log"
 	"path/filepath"
-	"sort"
 	"strings"
 )
+
+func buildPhotoReelImage(image string) structs.GalleryImage {
+	exif, err := utilities.ParseImageExif(image)
+	if err != nil {
+		log.Fatalf("Error parsing photo reel image: %v", err)
+	}
+
+	thumbnailPath := utilities.AppendToFile(image, "_thumb")
+
+	for _, file := range []string{image, thumbnailPath} {
+		err := utilities.CopyFile(file, strings.Replace(file, "content", "output", 1))
+		if err != nil {
+			log.Fatalf("Error copying image: %v", err)
+		}
+	}
+
+	return structs.GalleryImage{
+		Image:           utilities.GetFileNameFromPath(image),
+		Thumbnail:       utilities.GetFileNameFromPath(thumbnailPath),
+		CreateTimestamp: exif.DateTimeOriginal()}
+}
 
 func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, error) {
 	log.Println("Building photo reel")
@@ -26,30 +46,10 @@ func BuildPhotoReel(metadata structs.SiteMetadata) ([]structs.GalleryImage, erro
 
 	var photoReelImages []structs.GalleryImage
 	for _, path := range imagePaths {
-		exif, err := utilities.ParseImageExif(path)
-		if err != nil {
-			continue
-		}
-
-		thumbnailPath := utilities.AppendToFile(path, "_thumb")
-
-		for _, file := range []string{path, thumbnailPath} {
-			err := utilities.CopyFile(file, strings.Replace(file, "content", "output", 1))
-			if err != nil {
-				return nil, err
-			}
-		}
-
-		photoReelImages = append(photoReelImages, structs.GalleryImage{
-			Image:           utilities.GetFileNameFromPath(path),
-			Thumbnail:       utilities.GetFileNameFromPath(thumbnailPath),
-			CreateTimestamp: exif.DateTimeOriginal()})
-
+		photoReelImages = append(photoReelImages, buildPhotoReelImage(path))
 	}
 
-	sort.Slice(photoReelImages, func(i, j int) bool {
-		return photoReelImages[i].CreateTimestamp.After(photoReelImages[j].CreateTimestamp)
-	})
+	utilities.SortImages(photoReelImages, false)
 
 	err = utilities.BuildTemplate(
 		filepath.Join("templates", "photo-reel.html"),
