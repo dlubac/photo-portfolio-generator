@@ -1,6 +1,6 @@
-config.yml
+.idea/
+content/
 output/
+
 .DS_Store
 portfolioGenerator
-content/
-.idea/
