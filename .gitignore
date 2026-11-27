@@ -1,6 +1,9 @@
 .idea/
 content/
 output/
+cover-backup-*/
 
 .DS_Store
-portfolioGenerator
+.venv
+.ruff_cache
+__pycache__/
