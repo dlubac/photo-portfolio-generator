@@ -1,0 +1,984 @@
+{
+	"domain": "dlubac.com",
+	"name": "Matt Dlubac",
+	"description": "Landscape and travel photographs by Matt Dlubac.",
+	"instagram": "https://instagram.com/dlubac",
+	"content_dir": "content",
+	"output_dir": "output",
+	"galleries": [
+		{
+			"name": "Acadia",
+			"slug": "acadia",
+			"cover": "acadia_cover.avif",
+			"cover_alt": "A small rocky islet on a calm blue sea under a pink band of dawn",
+			"photos": [
+				{
+					"file": "acadia_01.avif",
+					"alt": "Mist rolling over a rocky coastline and breaking surf"
+				},
+				{
+					"file": "Boulder_Beach_Sunrise.avif",
+					"alt": "Sunrise light on tall sea cliffs above a misty cobble beach"
+				},
+				{
+					"file": "_7R33784-Enhanced-NR.avif",
+					"alt": "Storm clouds parting over a red sunrise, seen from granite ledges above the sea"
+				},
+				{
+					"file": "_7R33789-Enhanced-NR.avif",
+					"alt": "A small rocky islet on a calm blue sea under a pink band of dawn"
+				},
+				{
+					"file": "_7R33883-Enhanced-NR.avif",
+					"alt": "A spruce-topped granite headland at twilight, the horizon glowing over the ocean"
+				},
+				{
+					"file": "_7R33985.avif",
+					"alt": "Two pines on a pink granite outcrop at dawn"
+				},
+				{
+					"file": "_7R35650.avif",
+					"alt": "A single sunlit tree glowing against a dark forested hillside"
+				},
+				{
+					"file": "_7R36461.avif",
+					"alt": "Bright green birch forest with ferns in spring"
+				},
+				{
+					"file": "_7R53062-Enhanced-NR.avif",
+					"alt": "Waves breaking against pink granite shoreline below forested hills"
+				},
+				{
+					"file": "_7R53242-Enhanced-NR.avif",
+					"alt": "A pink and violet sky reflected in tidal water on a sandy beach"
+				},
+				{
+					"file": "_7R53249-Enhanced-NR.avif",
+					"alt": "A pastel sky over a calm tidal pool and beach, a wooded island beyond"
+				}
+			]
+		},
+		{
+			"name": "Death Valley",
+			"slug": "death-valley",
+			"cover": "dv_cover.avif",
+			"cover_alt": "A distant dune crest lit above a band of light across the sand",
+			"photos": [
+				{
+					"file": "_7R55173.avif",
+					"alt": "A single sunlit dune crest against deep shadow"
+				},
+				{
+					"file": "_7R55186-Enhanced-NR.avif",
+					"alt": "Soft dunes in shade beneath a hazy mountain range"
+				},
+				{
+					"file": "_7R55227-Enhanced-NR.avif",
+					"alt": "Sunset clouds over a lone dune and dark desert ridges"
+				},
+				{
+					"file": "_7R55267-Enhanced-NR.avif",
+					"alt": "Sharp dune ridges overlapping in blue evening light"
+				},
+				{
+					"file": "_7R55290.avif",
+					"alt": "A distant dune crest lit above a band of light across the sand"
+				},
+				{
+					"file": "_7R55313.avif",
+					"alt": "A pale sand dune with a crisp shadowed ridge under a white sky"
+				},
+				{
+					"file": "_7R55375-Enhanced-NR-Edit.avif",
+					"alt": "Rippled dunes rolling toward mountains under storm clouds"
+				},
+				{
+					"file": "_7R55410-Enhanced-NR-Edit.avif",
+					"alt": "The sun setting over dunes through broken clouds"
+				},
+				{
+					"file": "_7R55556-Enhanced-NR.avif",
+					"alt": "Rugged mountains glowing in warm light above sand dunes"
+				},
+				{
+					"file": "_7R55605-Enhanced-NR.avif",
+					"alt": "Stars over a cracked, dry lakebed at night"
+				}
+			]
+		},
+		{
+			"name": "Iceland",
+			"slug": "iceland",
+			"cover": "iceland_cover.avif",
+			"cover_alt": "Striped rhyolite mountains with patches of snow under a broken sky",
+			"photos": [
+				{
+					"file": "_7R51233-Enhanced-NR.avif",
+					"alt": "A waterfall pouring over basalt ledges into a turquoise pool"
+				},
+				{
+					"file": "_7R51259-Enhanced-NR.avif",
+					"alt": "A snow-capped volcano rising beyond a black lava plain"
+				},
+				{
+					"file": "_7R51267-Enhanced-NR.avif",
+					"alt": "Green slopes above a black sand valley"
+				},
+				{
+					"file": "_7R51287-Enhanced-NR.avif",
+					"alt": "Moss-green hills over dark volcanic sand in haze"
+				},
+				{
+					"file": "_7R51296-Enhanced-NR.avif",
+					"alt": "A green crater rim above a milky blue crater lake"
+				},
+				{
+					"file": "_7R51327-Enhanced-NR.avif",
+					"alt": "Golden light along the ridge of a brown volcanic mountain"
+				},
+				{
+					"file": "_7R51350-Enhanced-NR.avif",
+					"alt": "A hiker on a rock above multicoloured mountains streaked with snow"
+				},
+				{
+					"file": "_7R51371-Enhanced-NR.avif",
+					"alt": "Striped rhyolite mountains with patches of snow under a broken sky"
+				},
+				{
+					"file": "_7R51421-Enhanced-NR.avif",
+					"alt": "Low crater cones scattered across a grey volcanic plain"
+				},
+				{
+					"file": "_7R51440-Enhanced-NR.avif",
+					"alt": "A green pyramid-shaped peak above a dark highland valley"
+				},
+				{
+					"file": "_7R51597-Enhanced-NR.avif",
+					"alt": "Glowing orange lava flowing through black rock at night"
+				},
+				{
+					"file": "_7R51664-Enhanced-NR.avif",
+					"alt": "An erupting volcano glowing beneath a plume of smoke at dusk"
+				},
+				{
+					"file": "_7R51705.avif",
+					"alt": "A waterfall plunging into a mossy canyon"
+				},
+				{
+					"file": "_7R51735-Enhanced-NR.avif",
+					"alt": "White water cascading down a dark cliff, seen up close"
+				},
+				{
+					"file": "_7R51762-Enhanced-NR.avif",
+					"alt": "A small white church with a red roof beneath green cliffs"
+				},
+				{
+					"file": "_7R51781-Enhanced-NR.avif",
+					"alt": "The white edge of a wave sweeping across black sand"
+				},
+				{
+					"file": "_7R51841.avif",
+					"alt": "Waves washing onto a black sand beach beside distant sea cliffs"
+				},
+				{
+					"file": "_7R51896-Enhanced-NR.avif",
+					"alt": "The white and blue face of a glacier, seen up close"
+				},
+				{
+					"file": "_7R51931-Enhanced-NR.avif",
+					"alt": "Icebergs floating in a glacier lagoon below a misty mountain"
+				},
+				{
+					"file": "_7R51960.avif",
+					"alt": "Blue icebergs drifting on a pale glacier lagoon"
+				},
+				{
+					"file": "_7R52097-Enhanced-NR.avif",
+					"alt": "A puffin perched on a grassy cliff edge"
+				},
+				{
+					"file": "_7R52124-Enhanced-NR.avif",
+					"alt": "Two puffins touching beaks in green grass"
+				}
+			]
+		},
+		{
+			"name": "New England Winter",
+			"slug": "new-england-winter",
+			"cover": "ne_winter_cover.avif",
+			"cover_alt": "Snow-dusted spruce forest with one tree catching sunlight",
+			"photos": [
+				{
+					"file": "DSC05488-Enhanced-NR.avif",
+					"alt": "An oak leaf frozen into blue ice"
+				},
+				{
+					"file": "_7R34769-Enhanced-NR.avif",
+					"alt": "Snow-dusted spruce forest with one tree catching sunlight"
+				},
+				{
+					"file": "_7R34782.avif",
+					"alt": "Frost-covered branches over a rushing stream and boulders"
+				},
+				{
+					"file": "_7R36748.avif",
+					"alt": "A snowy forested ridge under a white sky"
+				},
+				{
+					"file": "_7R36796-Enhanced-NR.avif",
+					"alt": "A snow-covered mountain under a clear blue sky"
+				},
+				{
+					"file": "_7R52634-Enhanced-NR.avif",
+					"alt": "A waterfall cascading through a snow-filled gorge"
+				},
+				{
+					"file": "_7R54406.avif",
+					"alt": "A frozen shoreline curving into a misty white horizon"
+				},
+				{
+					"file": "_CR10347_full.avif",
+					"alt": "Sun breaking through storm clouds, reflected in a half-frozen lake"
+				},
+				{
+					"file": "_CR10378_full.avif",
+					"alt": "Golden light beneath dark clouds over a frozen lake and treeline"
+				},
+				{
+					"file": "_CR10621_full.avif",
+					"alt": "Mist rising over a frozen lake below snowy pines"
+				}
+			]
+		},
+		{
+			"name": "New York City",
+			"slug": "new-york-city",
+			"cover": "nyc_cover.avif",
+			"cover_alt": "The Lower Manhattan skyline in late light across the harbor",
+			"photos": [
+				{
+					"file": "_CR11091_full.avif",
+					"alt": "Graffiti on a stone wall beneath the columns of a classical building"
+				},
+				{
+					"file": "_CR11254_full.avif",
+					"alt": "A silhouetted couple at a ferry window, the Statue of Liberty beyond"
+				},
+				{
+					"file": "_CR11143_full.avif",
+					"alt": "Lower Manhattan towers at dusk above a narrow street"
+				},
+				{
+					"file": "_CR11277_full.avif",
+					"alt": "A large red cube sculpture balanced on one corner in a plaza"
+				},
+				{
+					"file": "_7R55919.avif",
+					"alt": "The Manhattan skyline across the water from a ferry wake at sunset"
+				},
+				{
+					"file": "_7R55884.avif",
+					"alt": "The Lower Manhattan skyline in late light across the harbor"
+				},
+				{
+					"file": "_7R55959.avif",
+					"alt": "The Lower Manhattan skyline lit up at night over the river"
+				},
+				{
+					"file": "_7R56123.avif",
+					"alt": "Lit office towers seen from above at night"
+				},
+				{
+					"file": "_7R56214.avif",
+					"alt": "Interlocking stairways of a honeycomb-like structure"
+				},
+				{
+					"file": "_7R56247.avif",
+					"alt": "Looking up through an octagonal opening at blue sky and clouds"
+				}
+			]
+		},
+		{
+			"name": "Pacific Northwest",
+			"slug": "pacific-northwest",
+			"cover": "pnw_cover.avif",
+			"cover_alt": "Jagged mountain peaks above a dark valley at dusk",
+			"photos": [
+				{
+					"file": "_7R52271-Enhanced-NR.avif",
+					"alt": "Jagged mountain peaks above a dark valley at dusk"
+				},
+				{
+					"file": "_7R52273-Enhanced-NR.avif",
+					"alt": "Cloud spilling over a dark mountain ridge"
+				},
+				{
+					"file": "_7R52282-Enhanced-NR.avif",
+					"alt": "Forested sea stacks rising from fog over the ocean"
+				},
+				{
+					"file": "_7R52323.avif",
+					"alt": "Snowy peaks catching alpenglow above dark ridges"
+				},
+				{
+					"file": "_7R52344-Enhanced-NR.avif",
+					"alt": "Mountains silhouetted against a golden sky, reflected in a lake"
+				},
+				{
+					"file": "_7R52354-Enhanced-NR.avif",
+					"alt": "Layered mountain ridges in blue haze at sunset"
+				},
+				{
+					"file": "_CR11697_full.avif",
+					"alt": "A subalpine meadow with snowy mountains on the horizon"
+				},
+				{
+					"file": "_CR11825_full.avif",
+					"alt": "Hazy ridges fading toward a distant sea"
+				},
+				{
+					"file": "_CR12149_full.avif",
+					"alt": "Evergreens silhouetted against a low sun on a ridge"
+				},
+				{
+					"file": "_CR12300_full.avif",
+					"alt": "Ferns carpeting the floor of a sunlit forest"
+				},
+				{
+					"file": "_CR12498_full.avif",
+					"alt": "Mossy trunks in a dense temperate rainforest"
+				},
+				{
+					"file": "_CR12573_full.avif",
+					"alt": "A tree-topped sea stack on a reflective beach"
+				},
+				{
+					"file": "_CR12634_full.avif",
+					"alt": "A road curving through dark forest toward a low sun"
+				},
+				{
+					"file": "_RX10111_full.avif",
+					"alt": "Sunbeams through tall trees over a boardwalk trail and ferns"
+				},
+				{
+					"file": "_RX10120_full.avif",
+					"alt": "A tree-covered sea stack reflected in wet sand"
+				}
+			]
+		},
+		{
+			"name": "Rocky Mountains",
+			"slug": "rocky-mountains",
+			"cover": "rockies_cover.avif",
+			"cover_alt": "Golden clouds over a dark mountain ridge",
+			"photos": [
+				{
+					"file": "_7R30365-Enhanced-NR.avif",
+					"alt": "Snowy peaks in cloud above a dark treeline, in black and white"
+				},
+				{
+					"file": "_7R32134-Edit.avif",
+					"alt": "Granite peaks above a sunlit conifer forest"
+				},
+				{
+					"file": "_7R32252.avif",
+					"alt": "The sun setting behind jagged peaks under golden clouds"
+				},
+				{
+					"file": "_7R32267-HDR.avif",
+					"alt": "Sunset along a distant mountain range, seen across alpine tundra"
+				},
+				{
+					"file": "_7R32274.avif",
+					"alt": "A storm cloud building over a mountain range"
+				},
+				{
+					"file": "_7R36531-Enhanced-NR.avif",
+					"alt": "A dark mountain silhouette against a blue evening sky"
+				},
+				{
+					"file": "_7R36638.avif",
+					"alt": "Golden clouds over a dark mountain ridge"
+				},
+				{
+					"file": "_7R36697-Enhanced-NR.avif",
+					"alt": "A snow squall over brown tundra hills"
+				},
+				{
+					"file": "_7R53607-Enhanced-NR.avif",
+					"alt": "Twilight over layered mountain ridges"
+				},
+				{
+					"file": "_7R53856-Enhanced-NR.avif",
+					"alt": "A meadow and pines below cloud-wrapped mountains"
+				},
+				{
+					"file": "_7R53881-Enhanced-NR.avif",
+					"alt": "Clouds settling over a mountain valley, seen from a grassy slope"
+				},
+				{
+					"file": "_7R53926-Enhanced-NR.avif",
+					"alt": "Evening light on rugged peaks above a dark valley"
+				},
+				{
+					"file": "_7R54169-Enhanced-NR.avif",
+					"alt": "The sun dipping through clouds over golden tundra"
+				},
+				{
+					"file": "_7R54180-Enhanced-NR.avif",
+					"alt": "A bull elk with large antlers on a rocky ridge at dusk"
+				}
+			]
+		},
+		{
+			"name": "Southwest",
+			"slug": "southwest",
+			"cover": "southwest_cover.avif",
+			"cover_alt": "A river winding toward a red sandstone peak at dusk",
+			"photos": [
+				{
+					"file": "_7R32817_BW.avif",
+					"alt": "A bare cottonwood tree glowing against a dark background, in black and white"
+				},
+				{
+					"file": "_7R32842.avif",
+					"alt": "A sandstone pillar beneath a red rock overhang"
+				},
+				{
+					"file": "_7R32854.avif",
+					"alt": "Pinecones and pale stones on the forest floor"
+				},
+				{
+					"file": "_7R32891.avif",
+					"alt": "A frosted pine standing alone in a snowy meadow"
+				},
+				{
+					"file": "_7R32944.avif",
+					"alt": "A river winding toward a red sandstone peak at dusk"
+				},
+				{
+					"file": "_7R32917.avif",
+					"alt": "A bare tree beside a river below canyon walls, in black and white"
+				},
+				{
+					"file": "_R000137-Enhanced-NR.avif",
+					"alt": "A giant observation wheel over city rooftops at dusk"
+				},
+				{
+					"file": "_7R52197-Enhanced-NR.avif",
+					"alt": "Cabins of an observation wheel silhouetted against a golden sky"
+				},
+				{
+					"file": "_7R54609-Enhanced-NR.avif",
+					"alt": "Hazy sunlight over desert slopes with scattered junipers"
+				},
+				{
+					"file": "_7R54669-Enhanced-NR.avif",
+					"alt": "A swirled sandstone ridge with junipers below a distant snowy peak"
+				},
+				{
+					"file": "_7R54808.avif",
+					"alt": "A red rock peak above a golden grassy meadow"
+				},
+				{
+					"file": "_7R54863.avif",
+					"alt": "A pale hoodoo standing above eroded red rock"
+				},
+				{
+					"file": "_7R55024.avif",
+					"alt": "The sun setting over a dark grassland"
+				},
+				{
+					"file": "_7R55078.avif",
+					"alt": "A backlit juniper on layered red sandstone"
+				}
+			]
+		},
+		{
+			"name": "Yosemite",
+			"slug": "yosemite",
+			"cover": "yosemite_cover.avif",
+			"cover_alt": "A granite cliff reflected in a still river beside pines",
+			"photos": [
+				{
+					"file": "_7R56303.avif",
+					"alt": "A granite cliff reflected in a still river beside pines"
+				},
+				{
+					"file": "_7R56354.avif",
+					"alt": "A granite spire above a sunlit meadow and backlit pines"
+				},
+				{
+					"file": "_7R56372.avif",
+					"alt": "A sheer granite wall above a meadow and pines"
+				},
+				{
+					"file": "_7R56442.avif",
+					"alt": "An orange sunset over hazy ridges and dark forest"
+				},
+				{
+					"file": "_7R56444.avif",
+					"alt": "Layered ridges fading beneath an orange sky"
+				},
+				{
+					"file": "_7R56485.avif",
+					"alt": "A granite dome in evening light above forested slopes"
+				},
+				{
+					"file": "_7R56664.avif",
+					"alt": "A dark treeline under an orange sky streaked with clouds"
+				},
+				{
+					"file": "_7R56699.avif",
+					"alt": "Sunset clouds between granite cliffs, reflected in a river"
+				},
+				{
+					"file": "_7R56753.avif",
+					"alt": "Granite domes under a cloudy sky above slabs and pines"
+				},
+				{
+					"file": "_7R56795.avif",
+					"alt": "A dark valley between granite walls under a fiery sky"
+				},
+				{
+					"file": "_7R56862.avif",
+					"alt": "Granite cliffs above a golden meadow and pines"
+				},
+				{
+					"file": "_7R56916.avif",
+					"alt": "Last light glowing on the face of a granite dome"
+				},
+				{
+					"file": "_7R56935.avif",
+					"alt": "Stars over a valley, lights twinkling far below"
+				}
+			]
+		}
+	],
+	"archive": [
+		{
+			"slug": "2026-06-18",
+			"date": "2026-06-18",
+			"title": "Olympic B-roll",
+			"cover": "_CR12313_cover.avif",
+			"cover_alt": "A white wooden shelter with a vintage red fuel pump",
+			"photos": [
+				{
+					"file": "_CR11725_full.avif",
+					"alt": "Snowy peaks beyond a dark forested ridge and a grassy slope"
+				},
+				{
+					"file": "_CR12158_full.avif",
+					"alt": "A mountain range at dawn, a sunlit rocky outcrop in the foreground"
+				},
+				{
+					"file": "_CR12218_full.avif",
+					"alt": "Clouds over a strait with distant land"
+				},
+				{
+					"file": "_CR12313_full.avif",
+					"alt": "A white wooden shelter with a vintage red fuel pump"
+				},
+				{
+					"file": "_CR12457_full.avif",
+					"alt": "A mossy fallen log in a green forest"
+				},
+				{
+					"file": "_CR12584_full.avif",
+					"alt": "Sea stacks rising from a rocky tidal beach"
+				},
+				{
+					"file": "_CR12595_full.avif",
+					"alt": "A tree-covered sea stack reflected in tide pools"
+				},
+				{
+					"file": "_CR12642_full.avif",
+					"alt": "A forested hill above a calm lake"
+				},
+				{
+					"file": "_CR12697_full.avif",
+					"alt": "Snowy peaks against a peach dusk sky"
+				},
+				{
+					"file": "_CR12702_full.avif",
+					"alt": "Snow-streaked peaks under pink-tinged clouds"
+				},
+				{
+					"file": "_CR12706_full.avif",
+					"alt": "Layered mountains under a rose sky"
+				},
+				{
+					"file": "_RX10116_full.avif",
+					"alt": "A rocky headland on a sandy beach"
+				},
+				{
+					"file": "_RX10124_full.avif",
+					"alt": "Hazy sea stacks on a misty beach"
+				},
+				{
+					"file": "_RX10152_full.avif",
+					"alt": "A lake framed by evergreens"
+				},
+				{
+					"file": "_RX10180_full.avif",
+					"alt": "Sunlit ferns and trees in an old-growth forest"
+				}
+			]
+		},
+		{
+			"slug": "2026-04-16",
+			"date": "2026-04-16",
+			"title": "NYC B-roll",
+			"cover": "_CR11176_cover.avif",
+			"cover_alt": "The silhouette of a person looking at a phone, walking past a window",
+			"photos": [
+				{
+					"file": "_CR11082_full.avif",
+					"alt": "A ribbed white structure curving beneath a glass skyscraper"
+				},
+				{
+					"file": "_CR11087_full.avif",
+					"alt": "An arched arcade receding toward a bright opening"
+				},
+				{
+					"file": "_CR11132_full.avif",
+					"alt": "A street lined with buildings leading to downtown towers at dusk"
+				},
+				{
+					"file": "_CR11136_full.avif",
+					"alt": "Downtown towers framed between buildings at dusk"
+				},
+				{
+					"file": "_CR11176_full.avif",
+					"alt": "The silhouette of a person looking at a phone, walking past a window"
+				},
+				{
+					"file": "_CR11204_full.avif",
+					"alt": "A delivery worker pushing a cart of bags past a red sports car"
+				},
+				{
+					"file": "_CR11222_full.avif",
+					"alt": "Silhouetted passengers at a ferry doorway"
+				},
+				{
+					"file": "_CR11295_full.avif",
+					"alt": "A red, white and black mural on a construction wall"
+				},
+				{
+					"file": "_CR11343_full.avif",
+					"alt": "A mural above a construction fence below glass towers"
+				},
+				{
+					"file": "_CR11382_full.avif",
+					"alt": "Glowing Chinese signs over a gift shop on a dark street"
+				},
+				{
+					"file": "_CR11428_full.avif",
+					"alt": "Pink cherry blossoms framing a tower"
+				},
+				{
+					"file": "_CR11447_full.avif",
+					"alt": "Cherry blossom branches against a blue sky"
+				},
+				{
+					"file": "_CR11458_full.avif",
+					"alt": "Looking up into a blooming cherry tree"
+				}
+			]
+		},
+		{
+			"slug": "2026-04-03",
+			"date": "2026-04-04",
+			"cover": "_7R58188_cover.avif",
+			"cover_alt": "Pines on a rocky point reflected in a calm lake",
+			"photos": [
+				{
+					"file": "_7R58157_full.avif",
+					"alt": "A lake seen through bare branches"
+				},
+				{
+					"file": "_7R58188_full.avif",
+					"alt": "Pines on a rocky point reflected in a calm lake"
+				},
+				{
+					"file": "_7R58199_full.avif",
+					"alt": "Bare trees and brush beside a mossy boulder"
+				},
+				{
+					"file": "_7R58245_full.avif",
+					"alt": "Pink and orange clouds reflected in a still lake at dusk"
+				},
+				{
+					"file": "_7R58254_full.avif",
+					"alt": "Streaked sunset clouds mirrored across a calm lake"
+				}
+			]
+		},
+		{
+			"slug": "2026-03-03",
+			"date": "2026-03-03",
+			"title": "Blood Moon",
+			"cover": "_7R58045_cover.avif",
+			"cover_alt": "A partially eclipsed moon glowing copper in a dark sky",
+			"photos": [
+				{
+					"file": "_7R58045_full.avif",
+					"alt": "A partially eclipsed moon glowing copper in a dark sky"
+				},
+				{
+					"file": "_7R58050_full.avif",
+					"alt": "An eclipsed moon above a dark treeline and frozen lake"
+				}
+			]
+		},
+		{
+			"slug": "2026-02-28",
+			"date": "2026-02-28",
+			"cover": "_CR10644_cover.avif",
+			"cover_alt": "The sun low over a hazy ridge, reflected in a lake",
+			"photos": [
+				{
+					"file": "_CR10644_full.avif",
+					"alt": "The sun low over a hazy ridge, reflected in a lake"
+				},
+				{
+					"file": "_CR10685_full.avif",
+					"alt": "Ski tracks crossing a snowy frozen lake at dusk"
+				},
+				{
+					"file": "_CR10689_full.avif",
+					"alt": "Dusk glow over a snow-covered lake and distant shoreline"
+				}
+			]
+		},
+		{
+			"slug": "2026-02-22",
+			"date": "2026-02-08",
+			"cover": "_CR10637_cover.avif",
+			"cover_alt": "Mist veiling snowy trees across a frozen lake",
+			"photos": [
+				{
+					"file": "_CR10603_full.avif",
+					"alt": "Snowy forest above a misty frozen lake"
+				},
+				{
+					"file": "_CR10621_full.avif",
+					"alt": "Mist drifting below frosted pines"
+				},
+				{
+					"file": "_CR10637_full.avif",
+					"alt": "Mist veiling snowy trees across a frozen lake"
+				}
+			]
+		},
+		{
+			"slug": "2026-01-19",
+			"date": "2026-01-19",
+			"cover": "_7R57462_cover.avif",
+			"cover_alt": "A hawk landing among snow-covered branches",
+			"photos": [
+				{
+					"file": "_7R57462_full.avif",
+					"alt": "A hawk landing among snow-covered branches"
+				},
+				{
+					"file": "_CR10529_full.avif",
+					"alt": "A small wooded island beyond a snowy marsh under dark clouds"
+				},
+				{
+					"file": "_CR10557_full.avif",
+					"alt": "A snowy path through shrubs under a bright, cloudy sky"
+				},
+				{
+					"file": "_CR10562_full.avif",
+					"alt": "Snow-laden trees under a pale sky"
+				}
+			]
+		},
+		{
+			"slug": "2026-01-18",
+			"date": "2026-01-18",
+			"cover": "_CR10437_cover.avif",
+			"cover_alt": "A lone clump of trees on a vast snow-covered lake",
+			"photos": [
+				{
+					"file": "_CR10416_full.avif",
+					"alt": "A snow-covered tree beside a white field"
+				},
+				{
+					"file": "_CR10421_full.avif",
+					"alt": "Snowy pines on a point by a frozen lake"
+				},
+				{
+					"file": "_CR10437_full.avif",
+					"alt": "A lone clump of trees on a vast snow-covered lake"
+				},
+				{
+					"file": "_CR10462_full.avif",
+					"alt": "Dark open water meeting the edge of snow-covered ice"
+				},
+				{
+					"file": "_CR10489_full.avif",
+					"alt": "A snowy treeline across a white frozen lake"
+				},
+				{
+					"file": "_CR10510_full.avif",
+					"alt": "A red barn among snow-covered trees"
+				},
+				{
+					"file": "_CR10517_full.avif",
+					"alt": "A snowy field with frosted trees in the distance"
+				}
+			]
+		},
+		{
+			"slug": "2026-01-15",
+			"date": "2026-01-15",
+			"cover": "_CR10347_cover.avif",
+			"cover_alt": "Sun breaking through storm clouds over a half-frozen lake",
+			"photos": [
+				{
+					"file": "_CR10347_full.avif",
+					"alt": "Sun breaking through storm clouds over a half-frozen lake"
+				},
+				{
+					"file": "_CR10372_full.avif",
+					"alt": "Dramatic clouds reflected in patches of melting ice"
+				},
+				{
+					"file": "_CR10378_full.avif",
+					"alt": "Golden light under dark clouds over a frozen lake"
+				},
+				{
+					"file": "_CR10395_full.avif",
+					"alt": "Light through clouds reflected on wet lake ice"
+				}
+			]
+		},
+		{
+			"slug": "2025-12-06",
+			"date": "2025-12-06",
+			"cover": "_CR10198_cover.avif",
+			"cover_alt": "A driftwood cross on a snowy, rocky shore",
+			"photos": [
+				{
+					"file": "_CR10198_full.avif",
+					"alt": "A driftwood cross on a snowy, rocky shore"
+				},
+				{
+					"file": "_7R57296_full.avif",
+					"alt": "A duck swimming on a grey river below marsh grass"
+				},
+				{
+					"file": "_CR10217_full.avif",
+					"alt": "Snow-dusted dune grass above a grey sea"
+				},
+				{
+					"file": "_CR10225_full.avif",
+					"alt": "Pale light through clouds over a calm grey sea"
+				},
+				{
+					"file": "_CR10229_full.avif",
+					"alt": "Snow on a beach meeting grey surf"
+				}
+			]
+		},
+		{
+			"slug": "2025-10-17",
+			"date": "2025-10-17",
+			"cover": "_CR10108_cover.avif",
+			"cover_alt": "A leaf floating on dark, rippled water",
+			"photos": [
+				{
+					"file": "_CR10050_full.avif",
+					"alt": "Golden autumn leaves against dark water"
+				},
+				{
+					"file": "_7R56989_full.avif",
+					"alt": "A maple leaf resting on wet pebbles"
+				},
+				{
+					"file": "_CR10108_full.avif",
+					"alt": "A leaf floating on dark, rippled water"
+				}
+			]
+		},
+		{
+			"slug": "2025-10-16",
+			"date": "2025-10-16",
+			"cover": "_7R57249_cover.avif",
+			"cover_alt": "Red sunset clouds over dark water",
+			"photos": [
+				{
+					"file": "_7R57132_full.avif",
+					"alt": "Autumn foliage framing a lake and island"
+				},
+				{
+					"file": "_7R57170_full.avif",
+					"alt": "A golden sunset over a lake with an autumn shoreline"
+				},
+				{
+					"file": "_7R57243_full.avif",
+					"alt": "Fiery clouds above a lake shore at sunset"
+				},
+				{
+					"file": "_7R57249_full.avif",
+					"alt": "Red sunset clouds over dark water"
+				},
+				{
+					"file": "_7R57250_full.avif",
+					"alt": "Crimson clouds over a lake and treeline"
+				},
+				{
+					"file": "_7R57255_full.avif",
+					"alt": "A red sky reflected in rippling lake water"
+				}
+			]
+		},
+		{
+			"slug": "2025-09-26",
+			"date": "2025-09-26",
+			"title": "Yosemite B-roll",
+			"cover": "_7R56741_cover.avif",
+			"cover_alt": "A road curving past a lone pine below granite domes",
+			"photos": [
+				{
+					"file": "_7R56578_full.avif",
+					"alt": "Granite domes above a deep blue alpine lake"
+				},
+				{
+					"file": "_7R56635_full.avif",
+					"alt": "A granite dome silhouetted in evening haze"
+				},
+				{
+					"file": "_7R56662_full.avif",
+					"alt": "Orange afterglow over dark ridges"
+				},
+				{
+					"file": "_7R56728_full.avif",
+					"alt": "A granite dome reflected in a lake under grey clouds"
+				},
+				{
+					"file": "_7R56741_full.avif",
+					"alt": "A road curving past a lone pine below granite domes"
+				},
+				{
+					"file": "_7R56815_full.avif",
+					"alt": "A blue-tinted granite wall, seen up close"
+				},
+				{
+					"file": "_7R56836_full.avif",
+					"alt": "A granite cliff above a grassy meadow"
+				},
+				{
+					"file": "_7R56898_full.avif",
+					"alt": "Granite domes and a valley under blue evening clouds"
+				},
+				{
+					"file": "_7R56957_full.avif",
+					"alt": "Granite walls in deep blue twilight"
+				}
+			]
+		}
+	]
+}
